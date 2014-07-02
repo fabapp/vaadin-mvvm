@@ -1,0 +1,9 @@
+@import "addons.scss";
+@import "vaadin_mvvm.scss";
+
+/* This file prefixes all rules with the theme name to avoid causing conflicts with other themes. */
+/* The actual styles should be defined in vaadin_mvvm.scss */
+.vaadin_mvvm {
+  @include addons;
+  @include vaadin_mvvm;
+}
