@@ -2,9 +2,6 @@ package org.vaadin.addons.bambi;
 
 import static org.vaadin.addons.bambi.ReflectionUtil.newInstance;
 
-import javax.annotation.ManagedBean;
-import javax.inject.Named;
-
 import com.vaadin.ui.CustomComponent;
 
 /**

@@ -1,8 +1,14 @@
-package de.appblocks.vaadin.mvvm;
+package de.appblocks.vaadin;
+
+import javax.servlet.annotation.WebInitParam;
+import javax.servlet.annotation.WebServlet;
 
 import com.vaadin.annotations.Push;
 import com.vaadin.cdi.CDIUI;
+import com.vaadin.server.Constants;
 import com.vaadin.server.VaadinRequest;
+import com.vaadin.server.VaadinServlet;
+import com.vaadin.server.VaadinSession;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.TextArea;
@@ -10,10 +16,36 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
 @Push
-@CDIUI()
+@CDIUI("")
 public class PushTestUI extends UI {
 
-    private VerticalLayout mainLayout;
+//	 @WebServlet(value = "/*",
+//    asyncSupported = true,
+//    initParams = {@WebInitParam(
+//            name = "session-timeout",
+//            value = "60"
+//    ),@WebInitParam(
+//            name = "UIProvider",
+//            value = "com.vaadin.cdi.CDIUIProvider"
+//    )}
+//)
+//@VaadinServletConfiguration(productionMode = false,
+//    ui = DataManagerUI.class,
+//    closeIdleSessions = true
+//)
+	
+//	@WebServlet(urlPatterns = "/*", initParams = { 
+//	        @WebInitParam(name = VaadinSession.UI_PARAMETER,
+//	        value = "de.appblocks.vaadin.PushTestUI"), 
+////	        @WebInitParam(name = Constants.PARAMETER_WIDGETSET, 
+////	        value =     "com.xy.zzy.AppWidgetSet"), 
+//	        @WebInitParam(name = Constants.SERVLET_PARAMETER_UI_PROVIDER, 
+//	        value =     "de.appblocks.vaadin.cdi.TomcatCDIUIProvider") 
+//	        })
+//	    public static class UIApplicationServlet extends VaadinServlet {}
+	
+	private static final long serialVersionUID = 380404459635522674L;
+	private VerticalLayout mainLayout;
 
     @Override
     protected void init(VaadinRequest request) {
@@ -35,7 +67,7 @@ public class PushTestUI extends UI {
             // Do initialization which takes some time.
             // Here represented by a 1s sleep
             try {
-                Thread.sleep(1000);
+                Thread.sleep(5000);
             } catch (InterruptedException e) {
             	e.printStackTrace();
             }

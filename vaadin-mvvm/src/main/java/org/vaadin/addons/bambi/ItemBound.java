@@ -1,6 +1,7 @@
 package org.vaadin.addons.bambi;
 
-import com.vaadin.data.Item;
+import static com.google.common.base.Preconditions.checkNotNull;
+import static org.vaadin.addons.bambi.ReflectionUtil.get;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -9,8 +10,7 @@ import java.lang.annotation.Target;
 import java.lang.reflect.Field;
 import java.util.Collection;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-import static org.vaadin.addons.bambi.ReflectionUtil.get;
+import com.vaadin.data.Item;
 
 /**
  * Marks a {@link com.vaadin.data.Item.Viewer} to be bound to a {@link com.vaadin.data.Item} defined in an

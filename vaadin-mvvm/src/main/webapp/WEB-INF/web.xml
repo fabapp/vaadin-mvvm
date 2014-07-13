@@ -3,33 +3,26 @@
 	xmlns="http://java.sun.com/xml/ns/javaee"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	version="3.0">
-	<display-name>vaadin-mvvm</display-name>
-	<!-- Tomcat 7 -->
-<!-- 	<resource-env-ref> -->
-<!-- 		<resource-env-ref-name>BeanManager</resource-env-ref-name> -->
-<!-- 		<resource-env-ref-type>javax.enterprise.inject.spi.BeanManager</resource-env-ref-type> -->
-<!-- 	</resource-env-ref> -->
+	<display-name>vaadin-mvvm-old</display-name>
+	<!-- required for weld in Tomcat -->
 	<listener>
 		<listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
 	</listener>
 	<servlet>
 		<servlet-name>MvvmUI</servlet-name>
 		<servlet-class>com.vaadin.server.VaadinServlet</servlet-class>
-
 		<init-param>
 			<param-name>ui</param-name>
-			<param-value>de.appblocks.vaadin.mvvm.VaadinMVVMUI</param-value>
+			<param-value>de.appblocks.vaadin.PushTestUI</param-value>
 		</init-param>
 		<init-param>
 			<param-name>uiprovider</param-name>
-<!-- 			<param-value>de.appblocks.vaadin.mvvm.cdi.TomcatCDIUIProvider</param-value> -->
-			<param-value>com.vaadin.cdi.CDIUIProvider</param-value>
+<!-- 	<param-value>com.vaadin.cdi.CDIUIProvider</param-value>  -->
+			<param-value>de.appblocks.vaadin.cdi.TomcatCDIUIProvider</param-value>
 		</init-param>
-
-		<!-- Enable server push -->
 		<init-param>
-		<param-name>pushmode</param-name>
-		<param-value>automatic</param-value>
+			<param-name>pushmode</param-name>
+			<param-value>automatic</param-value>
 		</init-param>
 		<async-supported>true</async-supported>
 	</servlet>
@@ -44,8 +37,9 @@
 	<listener>
 		<listener-class>org.atmosphere.cpr.SessionSupport</listener-class>
 	</listener>
-<!-- 	<context-param> -->
-<!-- 	<param-name>org.atmosphere.useNative</param-name> -->
-<!-- 	<param-value>true</param-value> -->
-<!-- 	</context-param> -->
+	<!-- Make weld BeanManager available in Tomcat -->
+	<resource-env-ref>
+		<resource-env-ref-name>BeanManager</resource-env-ref-name>
+		<resource-env-ref-type>javax.enterprise.inject.spi.BeanManager</resource-env-ref-type>
+	</resource-env-ref>
 </web-app>

@@ -1,14 +1,14 @@
 package org.vaadin.addons.bambi;
 
-import com.vaadin.event.MethodEventSource;
-import com.vaadin.ui.Button;
-
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import java.lang.reflect.Field;
 import java.util.Collection;
+
+import com.vaadin.event.MethodEventSource;
+import com.vaadin.ui.Button;
 
 /**
  * Marks a {@link com.vaadin.ui.Button} to be bound to a target method that is defined in an associated view model.

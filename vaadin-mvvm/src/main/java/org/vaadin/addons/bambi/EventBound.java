@@ -1,6 +1,6 @@
 package org.vaadin.addons.bambi;
 
-import com.vaadin.event.MethodEventSource;
+import static org.vaadin.addons.bambi.ReflectionUtil.get;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 import java.lang.reflect.Field;
 import java.util.Collection;
 
-import static org.vaadin.addons.bambi.ReflectionUtil.get;
+import com.vaadin.event.MethodEventSource;
 
 /**
  * Marks a {@link MethodEventSource} to be bound to a target method that is defined in an associated view model. This

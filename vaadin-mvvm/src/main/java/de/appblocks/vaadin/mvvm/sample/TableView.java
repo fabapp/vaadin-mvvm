@@ -6,10 +6,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 
-import com.google.gwt.event.dom.client.ChangeEvent;
-import com.google.gwt.thirdparty.guava.common.eventbus.Subscribe;
 import com.vaadin.cdi.CDIView;
-import com.vaadin.data.util.BeanItem;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.CustomComponent;

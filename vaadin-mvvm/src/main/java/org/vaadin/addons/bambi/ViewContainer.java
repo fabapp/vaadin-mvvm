@@ -1,6 +1,5 @@
 package org.vaadin.addons.bambi;
 
-import com.vaadin.ui.ComponentContainer;
 import com.vaadin.ui.CustomComponent;
 
 /**

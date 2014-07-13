@@ -1,7 +1,6 @@
 package de.appblocks.vaadin.mvvm.sample;
 
 import com.vaadin.cdi.UIScoped;
-import com.vaadin.data.util.BeanItem;
 @UIScoped
 public class InsertItemEvent {
 

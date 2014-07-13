@@ -2,8 +2,6 @@ package de.appblocks.vaadin.mvvm.sample;
 
 import java.io.Serializable;
 
-import com.vaadin.cdi.UIScoped;
-
 public class DemoModel  implements Serializable{
 	private String name;
 	private String value;
