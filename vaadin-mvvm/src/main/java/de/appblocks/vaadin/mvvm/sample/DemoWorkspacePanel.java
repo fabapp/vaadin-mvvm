@@ -30,7 +30,7 @@ public class DemoWorkspacePanel extends CustomComponent implements View {
 	private HorizontalLayout mainLayout;
 	private  Panel panel;
 	@Inject
-	private DisplayView displayView;
+	private FormView displayView;
 	@Inject
 	private TableView tableView;
 	

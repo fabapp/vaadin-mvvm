@@ -6,6 +6,17 @@ h1. Vaadin CDI and Vaadin Push with Websocket
 
 h1. The example application
 
+* The application creates a UI with two Views: 
+** _FormView_: Display a form for _DemoModel_
+** _TableView_: Display the list of availabke _DemoModel_'s 
+* each view has a ViewModel implementation:
+** _TableView_ -> TableViewModel
+** _FormView_ -> FormViewModel
+* When the _FormView_ form is submitted the buttonClick() listener method in _FormViewModel_ is called
+* The _FormViewModel_ adds the DemoModel to the _DemoModelService_ simulating persisting the model
+* After adding the _DemoModel_ to the service an _InsertItemEvent_ is fired by CDI
+* *The Observer (_TableViewModel.handleInsertItem()_) can not be called by CDI because it is not available in the CDI-Context(s) --> THIS IS THE PROBLEM!*
+
 h2. Vaadin CDI with Tomcat 7
 
 To allow lookup of CDI BeanManager in Tomcat:
@@ -41,4 +52,8 @@ h2. CODI + Vaadin CDI + Vaadin push
 
 Using CODI´s new scopes to dynamically switch from @SessionScope to (e.g.) CODI´s @ConversationScoped beans would allow to use Vaadin with CDI s
 
+
+h1. Useful Resources / Links
+
+"CDI Custom Scopes":http://rpestano.wordpress.com/2013/06/30/cdi-custom-scope/
  

@@ -1,6 +1,7 @@
 package de.appblocks.vaadin.mvvm.sample;
 
 //@UIScoped
+@InsertItem
 public class InsertItemEvent {
 
 	private DemoModel item;

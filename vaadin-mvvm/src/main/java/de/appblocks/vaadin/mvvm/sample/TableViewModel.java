@@ -14,7 +14,7 @@ import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.ui.UI;
 
 @UIScoped
-public class ContainerViewModel  implements Serializable{
+public class TableViewModel  implements Serializable{
 	
 	/**
 	 * 
@@ -23,10 +23,10 @@ public class ContainerViewModel  implements Serializable{
 	@Inject
 	DemoModelService demoModelService;
 	BeanItemContainer<DemoModel> itemContainer = new BeanItemContainer<DemoModel>(DemoModel.class);
-	@Inject
-	private EventBus eventBus;
+//	@Inject
+//	private EventBus eventBus;
 	
-	public ContainerViewModel() {
+	public TableViewModel() {
 		super();
 	}
 
@@ -37,9 +37,13 @@ public class ContainerViewModel  implements Serializable{
 	@PostConstruct
 	public void postConstruct() {
 		itemContainer.addAll(demoModelService.getAllDemoModels());
-		eventBus.register(this);
+//		eventBus.register(this);
 	}
 	
+	
+	/**
+	 * CDI Observer for InsertItemEvent
+	 */
 	public void handleInsertItem(@Observes InsertItemEvent event) {
 		final DemoModel item = event.getItem();
 		final UI ui = UI.getCurrent(); 

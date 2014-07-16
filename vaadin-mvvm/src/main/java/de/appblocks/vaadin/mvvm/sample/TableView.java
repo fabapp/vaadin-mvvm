@@ -25,7 +25,7 @@ public class TableView extends CustomComponent implements View, Serializable {
 	private HorizontalLayout mainLayout;
 	private Table table;
 	@Inject
-	private transient ContainerViewModel containerViewModel;
+	private transient TableViewModel containerViewModel;
 
 	public TableView() {
 		buildLayout();

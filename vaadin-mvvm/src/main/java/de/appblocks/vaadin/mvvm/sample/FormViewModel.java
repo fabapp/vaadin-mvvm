@@ -16,7 +16,7 @@ import com.vaadin.ui.Button.ClickListener;
 
 //@Named
 //@UIScoped
-public class DisplayViewModel implements ClickListener, Serializable {
+public class FormViewModel implements ClickListener, Serializable {
 
 	/**
 	 * 
@@ -31,7 +31,7 @@ public class DisplayViewModel implements ClickListener, Serializable {
 	@Inject
 	private EventBus eventBus;
 
-	public DisplayViewModel() {
+	public FormViewModel() {
 		DemoModel demoModel = new DemoModel();
 		demoModel.setValue("the value");
 		item = new BeanItem<DemoModel>(demoModel);

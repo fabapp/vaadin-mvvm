@@ -14,7 +14,7 @@ import org.junit.Test;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.UI;
 
-import de.appblocks.vaadin.mvvm.sample.DisplayViewModel;
+import de.appblocks.vaadin.mvvm.sample.FormViewModel;
 
 /**
  * @author fabian krueger
@@ -27,7 +27,7 @@ public class CDIEventTest {
 		UI ui = new VaadinMvvmUI();
 		Weld weld = new Weld();
 		WeldContainer container = weld.initialize();
-		DisplayViewModel displayViewModel = container.instance().select(DisplayViewModel.class).get();
+		FormViewModel displayViewModel = container.instance().select(FormViewModel.class).get();
 		displayViewModel.buttonClick(new ClickEvent(null));
 	}
 }
