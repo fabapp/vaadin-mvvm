@@ -14,25 +14,7 @@ import com.vaadin.ui.VerticalLayout;
 
 @Push/* https://vaadin.com/book/vaadin7/-/page/advanced.push.html */
 @CDIUI
-@WindowScoped
 public class VaadinMvvmUI extends UI {
-	
-//	
-//	 @WebServlet(value = "/*",
-//	            asyncSupported = true,
-//	            initParams = {@WebInitParam(
-//	                    name = "session-timeout",
-//	                    value = "60"
-//	            ),@WebInitParam(
-//	                    name = "UIProvider",
-//	                    value = "com.vaadin.cdi.CDIUIProvider"
-//	            )}
-//	    )
-//	    @VaadinServletConfiguration(productionMode = false,
-//	            ui = DataManagerUI.class,
-//	            closeIdleSessions = true
-//	    )
-	
 
 	@Inject
 	private CDIViewProvider viewProvider;

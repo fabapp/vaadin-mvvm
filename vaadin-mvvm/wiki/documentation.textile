@@ -1,0 +1,44 @@
+"WikiText with Textile":http://www.peterfriese.de/getting-started-with-wikitext/ 
+
+h1. Vaadin CDI and Vaadin Push with Websocket
+
+"Vaadin CDI":https://vaadin.com/wiki/-/wiki/Main/Vaadin-CDI-integration and "Vaadin Push":https://vaadin.com/book/vaadin7/-/page/advanced.push.html do not work together because "CDI does not define a scope for a Websocket communication":https://java.net/projects/websocket-spec/lists/jsr356-experts/archive/2013-05/message/1.  
+
+h1. The example application
+
+h2. Vaadin CDI with Tomcat 7
+
+To allow lookup of CDI BeanManager in Tomcat:
+
+# <webroot>/META-INF/context.xml is required (CDI BeanManager definition)
+# reference to BeanManager must be set in web.xml (CDI BeanManager definition)  
+# (empty) beans.xml must reside in <webroot>/WEB-INF/beans.xml
+# To use Vaadin CDI in Tomcat 7.x the CDIUIProvider implementation has to be explicitly set to de.appblocks.vaadin.cdi.TomcatCDIUIProvider in web.xml. The JNDI name definition for BeanManager in com.vaadin.cdi.CDIUIProvider differs in Tomcat 7.x
+
+h2. Problem analysis
+
+The Problem:
+
+* Vaadin CDI defines a new custom CDI scope: UIScoped
+* UIScoped beans are kept in a UIScopedContext
+* com.vaadin.cdi.internal.VaadinExtension listens to CDI-Event AfterBeanDiscovery and registers the UIScopedContext with CDI 
+* The UIScoped Vaadin-beans are kept in this Context
+* The Context is somehow (?) bound to the BeanStoreContainer which is originally SessionScoped
+* CODI creates all Scopes and CDI injection works but when BeanManagerImpl.getContext() is called the CODI contexts are not active. 
+
+h1. Solution approach 
+
+* If we could define the BeanStoreContainer with a scope recognized by WebSocket (CODI-scopes) 
+* And activate the scope for each Websocket communication
+* The Vaadin beans would be bound to a scope available to CDI
+* This would also allow event propagation to other CDI beans in the same context
+
+h2. CODI
+
+The Appache MyFaces Extension "CODI":http://myfaces.apache.org/extensions/cdi/ solves the gap in the CDI and Websocket specification. CODI defines new scopes related to Websocket communication. These scopes might be used by Vaadin CDI instead of the currently used SessionScope (which is not available within Websocket-communication). 
+
+h2. CODI + Vaadin CDI + Vaadin push
+
+Using CODI´s new scopes to dynamically switch from @SessionScope to (e.g.) CODI´s @ConversationScoped beans would allow to use Vaadin with CDI s
+
+ 
