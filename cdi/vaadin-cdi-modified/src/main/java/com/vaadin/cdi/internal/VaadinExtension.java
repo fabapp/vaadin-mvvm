@@ -28,6 +28,14 @@ import javax.enterprise.inject.spi.Extension;
  */
 public class VaadinExtension implements Extension {
 
+	/**
+	 * taken from: http://rpestano.wordpress.com/2013/06/30/cdi-custom-scope/
+	 * Not required, taken from comments on the same page 
+	 */
+//	 public void addScope(@Observes final BeforeBeanDiscovery event) {
+//	        event.addScope(UIScoped.class, true, false);
+//	    }
+	
     void afterBeanDiscovery(@Observes
     final AfterBeanDiscovery afterBeanDiscovery, final BeanManager beanManager) {
         afterBeanDiscovery.addContext(new UIScopedContext(beanManager));
