@@ -6,6 +6,7 @@ h1. Vaadin CDI and Vaadin Push with Websocket
 
 h1. The example application
 
+* Reach the application at <host>:<port>/mvvm-ui/ and the Vaadin Push example at <host>:<port>/mvvm-ui/test 
 * The application creates a UI with two Views: 
 ** _FormView_: Display a form for _DemoModel_
 ** _TableView_: Display the list of availabke _DemoModel_'s 
