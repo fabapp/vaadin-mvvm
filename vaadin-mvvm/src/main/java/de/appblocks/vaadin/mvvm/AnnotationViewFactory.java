@@ -1,6 +1,5 @@
 package de.appblocks.vaadin.mvvm;
 
-import javax.annotation.ManagedBean;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
@@ -9,7 +8,7 @@ import org.vaadin.addons.bambi.View;
 
 import com.vaadin.ui.CustomComponent;
 
-@ManagedBean
+//@ManagedBean
 @Named("viewFactory")
 @Singleton
 public class AnnotationViewFactory implements ViewFactory {

@@ -13,7 +13,8 @@
 		<servlet-class>com.vaadin.server.VaadinServlet</servlet-class>
 		<init-param>
 			<param-name>ui</param-name>
-			<param-value>de.appblocks.vaadin.PushTestUI</param-value>
+<!-- 			<param-value>de.appblocks.vaadin.PushTestUI</param-value> -->
+			<param-value>de.appblocks.vaadin.VaadinMvvmUI</param-value>
 		</init-param>
 		<init-param>
 			<param-name>uiprovider</param-name>
@@ -24,11 +25,11 @@
 			<param-name>pushmode</param-name>
 			<param-value>automatic</param-value>
 		</init-param>
-		<async-supported>true</async-supported>
+		<async-supported>false</async-supported>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>MvvmUI</servlet-name>
-		<url-pattern>/app/*</url-pattern>
+		<url-pattern>/*</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>MvvmUI</servlet-name>

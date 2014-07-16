@@ -3,10 +3,10 @@ package de.appblocks.vaadin.mvvm.sample;
 import java.io.Serializable;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 
-import com.vaadin.cdi.CDIView;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.CustomComponent;
@@ -14,7 +14,8 @@ import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Table;
 import com.vaadin.ui.UI;
 
-@CDIView("table")
+//@CDIView("table")
+//@UIScoped
 public class TableView extends CustomComponent implements View, Serializable {
 
 	/**
@@ -49,7 +50,7 @@ public class TableView extends CustomComponent implements View, Serializable {
 
 	}
 
-	public void handleInsertItem(@Observes InsertItemEvent event) {
+	public void handleInsertItem(@Observes @InsertItem InsertItemEvent event) {
 		final DemoModel item = event.getItem();
 		final UI ui = UI.getCurrent();
 		table.addItem(item);
@@ -83,9 +84,9 @@ public class TableView extends CustomComponent implements View, Serializable {
 //		
 //	}
 
-	// public void handleInsertItem(@Observes InsertItemEvent event) {
-	// table.setContainerDataSource(containerViewModel.getContainer());
-	// table.refreshRowCache();
-	// }
+//	 public void handleInsertItem(@Observes InsertItemEvent event) {
+//	 table.setContainerDataSource(containerViewModel.getContainer());
+//	 table.refreshRowCache();
+//	 }
 
 }

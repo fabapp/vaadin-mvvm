@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.enterprise.event.Event;
 import javax.enterprise.inject.Any;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import com.google.gwt.thirdparty.guava.common.eventbus.EventBus;
 import com.vaadin.cdi.UIScoped;
@@ -13,14 +14,19 @@ import com.vaadin.data.util.BeanItem;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
 
-@UIScoped
+//@Named
+//@UIScoped
 public class DisplayViewModel implements ClickListener, Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 607300431054328531L;
 	@Inject
 	private DemoModelService demoModelService;
 	private BeanItem<DemoModel> item;
 	@Inject
-	@Any 
+	@InsertItem
     private Event<InsertItemEvent> insertItemEvent;
 	@Inject
 	private EventBus eventBus;

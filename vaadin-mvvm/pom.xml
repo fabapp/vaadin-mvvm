@@ -125,11 +125,24 @@
 			<artifactId>vaadin-push</artifactId>
 			<version>${vaadin.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.atmosphere</groupId>
+			<artifactId>atmosphere-cdi</artifactId>
+			<version>2.1.0</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.atmosphere</groupId>
+					<artifactId>atmosphere-runtime</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 		<!-- Vaadin 7 CDI Integration -->
 		<dependency>
 			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-cdi</artifactId>
-			<version>1.0.0.alpha2</version>
+			<artifactId>vaadin-cdi-modified</artifactId>
+<!-- 			<artifactId>vaadin-cdi</artifactId> -->
+<!-- 			<version>1.0.0.alpha2</version> -->
+			<version>1.0-SNAPSHOT</version>
 			<scope>compile</scope>
 		</dependency>
 		<!-- Servlet 3.1 API -->
@@ -154,7 +167,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.jboss.weld</groupId>
-			<artifactId>weld-core-test-common</artifactId>
+			<artifactId>weld-core-test</artifactId>
 			<version>2.2.2.Final</version>
 			<scope>test</scope>
 		</dependency>
@@ -183,11 +196,17 @@
 			<version>6.0</version>
 			<scope>provided</scope>
 		</dependency>
-		<!-- google guave events -->
+		<!-- google guave events TODO: remove when cdi events are working -->
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 			<version>17.0</version>
+		</dependency>
+		<!-- Log4J -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
 		</dependency>
 	</dependencies>
 	<build>

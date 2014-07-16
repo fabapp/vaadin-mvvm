@@ -4,6 +4,10 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
+        <dependent-module archiveName="vaadin-cdi-modified-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/vaadin-cdi-modified/vaadin-cdi-modified">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="vaadin-mvvm"/>
         <property name="java-output-path" value="/vaadin-mvvm/target/classes"/>
     </wb-module>

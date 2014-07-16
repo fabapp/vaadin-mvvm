@@ -3,7 +3,6 @@
 	<name>vaadin-mvvm</name>
 	<comment></comment>
 	<projects>
-		<project>vaadin-cdi-modified</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

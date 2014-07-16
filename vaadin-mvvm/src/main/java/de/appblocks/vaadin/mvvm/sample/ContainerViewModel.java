@@ -3,12 +3,15 @@ package de.appblocks.vaadin.mvvm.sample;
 import java.io.Serializable;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 
 import com.google.gwt.thirdparty.guava.common.eventbus.EventBus;
 import com.vaadin.cdi.UIScoped;
 import com.vaadin.data.Container;
+import com.vaadin.data.util.BeanItem;
 import com.vaadin.data.util.BeanItemContainer;
+import com.vaadin.ui.UI;
 
 @UIScoped
 public class ContainerViewModel  implements Serializable{
@@ -37,17 +40,17 @@ public class ContainerViewModel  implements Serializable{
 		eventBus.register(this);
 	}
 	
-//	public void handleInsertItem(@Observes InsertItemEvent event) {
-//		final BeanItem<DemoModel> item = event.getItem();
-//		final UI ui = UI.getCurrent(); 
-//		ui.access(new Runnable() {
-//		    @Override
-//		    public void run() {
-//		    	itemContainer.addItem(item);
-//		        ui.push();
-//		    }
-//		});
-//	}
+	public void handleInsertItem(@Observes InsertItemEvent event) {
+		final DemoModel item = event.getItem();
+		final UI ui = UI.getCurrent(); 
+		ui.access(new Runnable() {
+		    @Override
+		    public void run() {
+		    	itemContainer.addItem(item);
+		        ui.push();
+		    }
+		});
+	}
 
 	
 }

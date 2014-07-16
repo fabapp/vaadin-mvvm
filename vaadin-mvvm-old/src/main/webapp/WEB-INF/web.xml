@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>vaadin-mvvm-old</display-name>
+  <listener>
+    <listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
+  </listener>
+  <servlet>
+    <servlet-name>MvvmUI</servlet-name>
+    <servlet-class>com.vaadin.server.VaadinServlet</servlet-class>
+    <init-param>
+      <param-name>ui</param-name>
+      <param-value>de.appblocks.vaadin.mvvm.VaadinMVVMUI</param-value>
+    </init-param>
+    <init-param>
+      <param-name>uiprovider</param-name>
+      <param-value>com.vaadin.cdi.CDIUIProvider</param-value>
+    </init-param>
+    <init-param>
+      <param-name>pushmode</param-name>
+      <param-value>automatic</param-value>
+    </init-param>
+    <async-supported>true</async-supported>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MvvmUI</servlet-name>
+    <url-pattern>/app/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MvvmUI</servlet-name>
+    <url-pattern>/VAADIN/*</url-pattern>
+  </servlet-mapping>
+  <listener>
+    <listener-class>org.atmosphere.cpr.SessionSupport</listener-class>
+  </listener>
+</web-app>

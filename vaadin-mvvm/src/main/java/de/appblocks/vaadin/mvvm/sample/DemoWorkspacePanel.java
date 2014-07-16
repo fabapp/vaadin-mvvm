@@ -4,6 +4,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import com.vaadin.cdi.CDIView;
+import com.vaadin.cdi.UIScoped;
 import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
@@ -18,6 +19,7 @@ import com.vaadin.ui.Table;
 import com.vaadin.ui.TextField;
 
 @CDIView("")
+@UIScoped
 public class DemoWorkspacePanel extends CustomComponent implements View {
 	
 	/**

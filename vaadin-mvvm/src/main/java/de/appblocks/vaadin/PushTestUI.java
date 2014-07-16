@@ -16,7 +16,7 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
 @Push
-@CDIUI("")
+@CDIUI("test")
 public class PushTestUI extends UI {
 
 //	 @WebServlet(value = "/*",

@@ -2,6 +2,8 @@ package de.appblocks.vaadin;
 
 import javax.inject.Inject;
 
+import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.WindowScoped;
+
 import com.vaadin.annotations.Push;
 import com.vaadin.cdi.CDIUI;
 import com.vaadin.cdi.CDIViewProvider;
@@ -10,8 +12,9 @@ import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
-//@Push/* https://vaadin.com/book/vaadin7/-/page/advanced.push.html */
-//@CDIUI
+@Push/* https://vaadin.com/book/vaadin7/-/page/advanced.push.html */
+@CDIUI
+@WindowScoped
 public class VaadinMvvmUI extends UI {
 	
 //	
